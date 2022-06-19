@@ -1,0 +1,34 @@
+@import "~bootstrap";
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #3c8dbc;
+}
+
+.wrapper{
+
+    width: 80%;
+    margin: 0 auto;
+    height: auto;
+    border-radius: 30px;
+    background-color: #fff;
+    padding:20px;
+    margin-top:20px;
+
+}
+
+.content-header{
+
+    color:#3c8dbc;
+    text-shadow: 3px 1px 0px #d0d0d0;
+
+}
+
+
+.btnEstado{
+
+    cursor:pointer;
+    font-size: 1.2em;
+
+}
