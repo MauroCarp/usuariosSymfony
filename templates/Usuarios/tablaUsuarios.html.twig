@@ -86,7 +86,7 @@
 
                                     <td> {{ usuario.nombre }} </td>
                                     <td> {{ usuario.apellidos }} </td>
-                                    <td> 2022-01-01 </td>
+                                    <td> {{ usuario.fechaNacimiento|date('Y-m-d') }}</td>
                                     <td> {{ usuario.sexo == 'M' ? 'Masculino' : 'Femenino'}} </td>
                                     <td>
 
