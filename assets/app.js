@@ -94,3 +94,13 @@ $('.tablaUsuarios').DataTable({
         }
     }
 });
+
+//CAMBIAR ESTADO USUARIO
+
+$('.tablaUsuarios').on('click','.btnEstado',function(){
+
+    let id = $(this).attr('idUsuario')
+
+    window.location = `DarAltaBaja/${id}`
+
+})

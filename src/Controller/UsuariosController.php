@@ -98,6 +98,31 @@ class UsuariosController extends AbstractController
 
     }
 
+    /**
+     * @Route("/DarAltaBaja/{id}", name="darAltaBaja/{id}")
+     */
+
+    public function editarAltaBaja($id)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+        $usuario = $em->getRepository(Usuarios::class)->find($id);
+
+        $estado = !$usuario->isEstado();
+
+
+        $usuario->setEstado($estado);
+
+        if (!$usuario) {
+            throw $this->createNotFoundException('El usuario no existe');
+        }
+
+        $em->flush();
+
+        return $this->redirectToRoute('home');
+
+    }
+
 
     /**
      * @Route("/VerUsuario",name="verUsuario")
