@@ -51,6 +51,31 @@
                         </thead>
 
                         <tbody>
+                        {% for usuario in usuarios %}
+                            <tr>
+
+                            <td> {{ usuario.nombre }} </td>
+                            <td> {{ usuario.apellidos }} </td>
+                            <td> 2022-01-01 </td>
+                            <td> {{ usuario.sexo == 'M' ? 'Masculino' : 'Femenino'}} </td>
+                            <td>
+
+                                {% if usuario.estado == false %}
+                                    <span class='badge bg-danger btnEstado' idUsuario='{{ usuario.id }}' estadoUsuario='{{ usuario.estado }}'>Baja</span>
+                                {% else %}
+                                    <span class='badge bg-success btnEstado' idUsuario='{{ usuario.id }}' estadoUsuario='{{ usuario.estado }}'>Alta</span>";
+                                {% endif %}
+
+                            </td>
+
+                            <td>
+
+                                <div class='btn-group'><button class='btn btn-warning btnEditarUsuario' idUsuario='{{ usuario.id }}' data-toggle='modal' data-target='#modalEditarUsuario' ><i class='fa fa-pencil'></i></button><button class='btn btn-danger btnEliminarUsuario' idUsuario='{{  usuario.id }}'><i class='fa fa-times'></i></button></div>
+
+                            </td>
+
+                            </tr>
+                        {% endfor %}
 
                         </tbody>
 

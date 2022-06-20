@@ -8,10 +8,41 @@
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/app.css';
 
+import 'datatables.net-dt/css/jquery.dataTables.css'
 
 import $ from 'jquery';
 
 // start the Stimulus application
 import './bootstrap';
 
-console.log($('h1'))
+import 'datatables.net/js/jquery.dataTables'
+
+$('.tablaUsuarios').DataTable({
+    "deferRender": true,
+    "retrieve": true,
+    "processing": true,
+    "searching": false,
+    "info": false,
+    "bLengthChange": false,
+    "pageLength": 10,
+    "language": {
+        "sProcessing": "Procesando...",
+        "sLengthMenu": "Mostrar _MENU_ registros",
+        "sZeroRecords": "No se encontraron resultados",
+        "sEmptyTable": "Ningún dato disponible en esta tabla",
+        "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_",
+        "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0",
+        "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+        "sInfoPostFix": "",
+        "sSearch": "Buscar:",
+        "sUrl": "",
+        "sInfoThousands": ",",
+        "sLoadingRecords": "Cargando...",
+        "oPaginate": {
+            "sFirst": "Primero",
+            "sLast": "Último",
+            "sNext": "Siguiente",
+            "sPrevious": "Anterior"
+        }
+    }
+});

@@ -36,8 +36,12 @@ class UsuariosController extends AbstractController
 
         }
 
+        $em = $this->getDoctrine()->getManager();
+        $usuarios = $em->getRepository(Usuarios::class)->findAll();
+
         return $this->render('Usuarios/tablaUsuarios.html.twig',[
-            'newUserForm'=>$formulario->createView()
+            'newUserForm'=>$formulario->createView(),
+            'usuarios'=>$usuarios
         ]);
 
     }
