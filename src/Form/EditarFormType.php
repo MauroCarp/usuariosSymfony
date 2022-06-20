@@ -18,7 +18,7 @@ class EditarFormType extends AbstractType
         $builder
             ->add('nombre',TextType::class,['label'=>'Nombre'])
             ->add('apellidos',TextType::class,['label'=>'Apellido'])
-            ->add('fecha_nacimiento',DateType::class,['label'=>'Fecha de Nacimiento'])
+            ->add('fecha_nacimiento',DateType::class,['label'=>'Fecha de Nacimiento','widget' => 'single_text'])
             ->add('sexo',ChoiceType::class,['label'=>'Sexo',
                 'choices'=>[
                     'Masculino'=>'M',
