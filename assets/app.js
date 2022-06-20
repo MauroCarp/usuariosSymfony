@@ -17,6 +17,8 @@ import './bootstrap';
 
 import 'datatables.net/js/jquery.dataTables'
 
+
+//NUEVO USUARIO
 $('#btn-agregar-usuario').on('click',()=>{
 
     $('#form-nuevo-usuario').toggleClass('d-none')
@@ -27,6 +29,7 @@ $('#btn-agregar-usuario').on('click',()=>{
 
 })
 
+//ELIMINAR USUARIO
 $('.tablaUsuarios').on('click','.btnEliminarUsuario',function () {
 
     let idUsuario = $(this).attr('idusuario')
@@ -35,16 +38,33 @@ $('.tablaUsuarios').on('click','.btnEliminarUsuario',function () {
 
 })
 
+//EDITAR USUARIO
 $('.tablaUsuarios').on('click','.btnEditarUsuario',function () {
 
     let idUsuario = $(this).attr('idusuario')
+
+    console.log(idUsuario)
 
     $('#form-nuevo-usuario').addClass('d-none')
 
     $('#form-editar-usuario').toggleClass('d-none')
 
+    console.log('gola')
+
+    $.ajax({
+    type: 'POST',
+    url: "/VerUsuario",
+    data: ({id: idUsuario}),
+    async: true,
+    dataType: "json",
+    success: function (data) {
+    console.log(data)
+    }
+    });
+
 })
 
+//TABLA USUARIOS
 $('.tablaUsuarios').DataTable({
     "deferRender": true,
     "retrieve": true,
@@ -74,4 +94,3 @@ $('.tablaUsuarios').DataTable({
         }
     }
 });
-
