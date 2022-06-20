@@ -3,22 +3,21 @@
 namespace App\Form;
 
 use App\Entity\Usuarios;
-use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
+use \Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
-
-class UsuariosFormType extends AbstractType
+class EditarFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('nombre',TextType::class,['label'=>'Nombre'])
-            ->add('apellidos',TextType::class,['label'=>'Apellidos'])
+            ->add('apellidos',TextType::class,['label'=>'Apellido'])
             ->add('fecha_nacimiento',DateType::class,['label'=>'Fecha de Nacimiento'])
             ->add('sexo',ChoiceType::class,['label'=>'Sexo',
                 'choices'=>[
@@ -26,7 +25,7 @@ class UsuariosFormType extends AbstractType
                     'Femenino'=>'F'
                 ]
             ])
-            ->add('Cargar',SubmitType::class)
+            ->add('Modificar',SubmitType::class)
         ;
     }
 
