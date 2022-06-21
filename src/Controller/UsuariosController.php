@@ -37,6 +37,8 @@ class UsuariosController extends AbstractController
 
             $ent->flush();
 
+            $this->addFlash('success','Usuario creado con exito!');
+
             return $this->redirectToRoute('home');
 
         }
@@ -85,14 +87,13 @@ class UsuariosController extends AbstractController
         $em = $this->getDoctrine()->getManager();
         $usuario = $em->getRepository(Usuarios::class)->find($id);
 
-        dump($usuario);
-
         if (!$usuario) {
             throw $this->createNotFoundException('El usuario no existe');
         }
 
         $em->remove($usuario);
         $em->flush();
+        $this->addFlash('success','Usuario Eliminado con exito!');
 
         return $this->redirectToRoute('home');
 
