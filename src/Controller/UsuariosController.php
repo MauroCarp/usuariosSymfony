@@ -54,10 +54,14 @@ class UsuariosController extends AbstractController
 
         if ($formularioEdit->isSubmitted() && $formularioEdit->isValid()) {
 
-            $ent = $this->getDoctrine()->getManager();
-            $ent->persist($usuario);
+            $em = $this->getDoctrine()->getManager();
+            $usuarioEdit->setNombre($request->get('editar_form[nombre]');
+            $usuarioEdit->setApellidos($request->get('editar_form[apellidos]');
+            $usuarioEdit->setFechaNacimiento($request->get('editar_form[fecha_nacimiento]');
+            $usuarioEdit->setSexo($request->get('editar_form[sexo]');
 
-            $ent->flush();
+            $em->flush();
+            $this->addFlash('success','Usuario modificado con exito!');
 
             return $this->redirectToRoute('home');
 
